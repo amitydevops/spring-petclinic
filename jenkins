@@ -1,0 +1,29 @@
+pipeline{
+    agent{label 'master'}
+    tools{
+        maven 'MVN3'
+    }
+    stages{
+        stage('Checkout'){
+            steps{
+                git 'https://github.com/amitydevops/spring-petclinic.git'
+            }
+        }
+        stage('Build'){
+            steps{
+                 sh 'mvn clean compile'
+            }
+        }
+        }
+}
+pipeline {
+    agent { label 'slave' }
+    stages {
+            stage ('create database') {
+            steps { 
+                echo 'creating databasec'
+                sh script: '/etc/init.d/oracledb_ORCLCDB-19c configure'
+            }
+        }
+    }
+    }
