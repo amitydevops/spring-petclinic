@@ -21,8 +21,8 @@ pipeline {
     stages {
             stage ('deploy') {
             steps { 
-                echo 'creating databasec'
-                sh script: '/etc/init.d/oracledb_ORCLCDB-19c configure'
+                echo 'deletingting databasec'
+                sh script: '/etc/init.d/oracledb_ORCLCDB-19c delete'
             }
         }
     }
