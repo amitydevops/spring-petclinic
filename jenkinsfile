@@ -19,7 +19,7 @@ pipeline{
 pipeline {
     agent { label 'slave' }
     stages {
-            stage ('create database') {
+            stage ('createDB') {
             steps { 
                 echo 'creating databasec'
                 sh script: '/etc/init.d/oracledb_ORCLCDB-19c configure'
